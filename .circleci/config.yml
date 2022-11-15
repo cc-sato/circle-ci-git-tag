@@ -30,7 +30,7 @@ jobs:
       - *add-tag
 workflows:
   version: 2
-   add:
+  add:
     jobs:
       - add-git-tag:
          filters:
