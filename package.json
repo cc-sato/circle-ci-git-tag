@@ -1,5 +1,5 @@
 {
-  "name": "component",
+  "name": "circle-ci-git-tag",
   "version": "1.0.2",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cc-sato/component.git"
+    "url": "git+https://github.com/cc-sato/circle-ci-git-tag.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cc-sato/component/issues"
+    "url": "https://github.com/cc-sato/circle-ci-git-tag/issues"
   },
-  "homepage": "https://github.com/cc-sato/component#readme"
+  "homepage": "https://github.com/cc-sato/circle-ci-git-tag#readme"
 }

@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@3.2.2
+  git: ganta/git@1.2.0
+
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:16.14.2
+
+set_environment: &set_environment
+  docker:
+    - image: cimg/node:16.14.2
+  working_directory: ~/project
+  environment:
+    TZ: Asia/Tokyo
+    HUSKY: 0
+add-tag: &add-tag
+  run:
+    name: Add Git Tag
+    command: |
+      sudo chmod +x .circleci/scripts/add-git-tag.sh
+      .circleci/scripts/add-git-tag.sh ${CIRCLE_BRANCH}
+
+jobs:
+  add-git-tag:
+    <<: *set_environment
+    steps:
+      - checkout
+      - *add-tag
+workflows:
+  version: 2
+   add:
+    jobs:
+      - add-git-tag:
+         filters:
+           branches:
+             only:
+               - master
+               - staging
+               - /protect\/.*/
+               - add-git-tag-ci-step
